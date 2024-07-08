@@ -1,5 +1,4 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import Hero from './routes/Hero';
 import About from './routes/About';
 import Projects from './routes/Projects';
@@ -12,12 +11,6 @@ const Main = () => {
             <About />
             <Projects />
             <Contact />
-            {/* <Routes>
-                <Route path='/hero' element={<Hero />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/projects' element={<Projects />} />
-                <Route path='/contact' element={<Contact />} />
-            </Routes>  */}
         </main>
     );
 }

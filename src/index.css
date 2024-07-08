@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ .radial-background {
+    background: rgb(219,219,228);
+    background: radial-gradient(circle, rgba(219,219,228,0.5305724584755778) 0%, rgba(18,18,19,0.9059225985316002) 85%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+ }
+ 
+ .grow {
+    animation: grow 0.5s linear forwards 1;
+    animation-timeline: view(block 50% 10%);
+ }
+
+ .slideInLeft {
+    animation: slideInLeft 0.5s linear backwards 1;
+    animation-timeline: view(block 50% 20%);
+ }
+
+ .slideInRight {
+    animation: slideInRight 0.5s linear backwards 1;
+    animation-timeline: view(block 50% 20%);
+ }
+
+ .show {
+    animation: fadeIn 0.5s linear backwards 1;
+    animation-timeline: view(block 50% 20%);
+ }
+
+ @keyframes grow {
+    0% {
+    transform: scale(0.25);
+    } 65% {
+        transform: scale(1);
+    }
+ }
+
+ @keyframes slideInLeft {
+    0% {
+        transform: translateX(-80%);
+    } 45% {
+        transform: translateX(0);
+    }
+ }
+
+ @keyframes slideInRight {
+    0% {
+        transform: translateX(80%);
+    } 45% {
+        transform: translateX(0);
+    }
+ }
+
+ @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    } 45% {
+        opacity: 1;
+    }
+ }

@@ -3,19 +3,19 @@ import React from 'react';
 const Contact = () => {
     const inputStyle = 'py-3 px-2 text-white font-bold border-2 border-lightViolet bg-purple rounded-md';
     return (
-        <section className='mx-auto py-16 min-h-[90vh] w-11/12 lg:w-10/12 relative' id='contact'>
+        <section className='mx-auto py-16 w-11/12 lg:w-10/12 relative show' id='contact'>
             <div className='text-left lg:text-center'>
-                <div className="inline-block">
+                <div className="inline-block delay-75">
                     <span className='min-w-full inline-block min-h-6 translate-x-6 bg-pink'></span>
                     <h1 className='text-4xl font-extrabold translate-y-[-135%]'>Contact</h1>
                 </div>
             </div>
-            <div className='lg:max-w-lg mx-auto'>
+            <div className='lg:max-w-lg mx-auto delay-150'>
                 <h4>
                     Have a question or want  to work together? Please leave a comment 
                     and I will get back to you as soon as possible.
                 </h4>
-                <form action="POST" className='flex flex-col gap-8 mt-12'>
+                <form action="POST" className='flex flex-col gap-4 mt-10'>
                     <input type="text" placeholder="Name" className={inputStyle} />
                     <input type="email" placeholder="Email" className={inputStyle} />
                     <textarea name="message" placeholder='Message' className={`${inputStyle} resize-none`} rows={7}></textarea>

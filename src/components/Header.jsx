@@ -1,48 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import { CiMenuFries } from "react-icons/ci";
-import { RxCross1 } from "react-icons/rx";
-
-const MobileNav = ({ nav, switchMenu, focus, switchActive, isActiveLink }) => {
-    return (
-        <div className='lg:hidden z-10'>
-            <CiMenuFries 
-                className='text-white z-40 cursor-pointer scale-150 hover:text-pure ease-out' 
-                onClick={switchMenu}
-            />
-            <nav className={ nav 
-                ? 'absolute top-0 left-0 w-[100vw] h-[100vh] bg-violet flex justify-center items-center z-10' 
-                : "absolute top-0 left-[-100%] ease-in duration-200"
-            }>
-            <RxCross1 
-                className='text-white cursor-pointer scale-150 hover:text-pure ease-out absolute top-6 right-6 cursor-pointer' 
-                onClick={switchMenu}
-            />
-            <ul className='list-none flex flex-col items-center text-white'>
-                <li><NavLink onClick={() => switchActive('hero')} className={() => focus(isActiveLink.hero)} name='hero' to="#hero">Home</NavLink></li>
-                <li><NavLink onClick={() => switchActive('about')} className={() => focus(isActiveLink.about)} name='about' to="#about">About</NavLink></li>
-                <li><NavLink onClick={() => switchActive('projects')} className={() => focus(isActiveLink.projects)} name='projects' to="#projects">Projects</NavLink></li>
-                <li><NavLink onClick={() => switchActive('contact')} className={() => focus(isActiveLink.contact)} name='contact' to="#contact">Contact</NavLink></li>
-            </ul>
-            </nav>
-        </div>
-    );
-}
-
-
-const DesktopNav = ({ focus, switchActive, isActiveLink }) => (
-    <nav className='hidden lg:flex '>
-        <ul className='list-none flex z-10 items-center text-white '>
-            <li><NavLink onClick={() => switchActive('hero')} className={() => focus(isActiveLink.hero)} name='hero' to="#hero">Home</NavLink></li>
-            <li><NavLink onClick={() => switchActive('about')} className={() => focus(isActiveLink.about)} name='about' to="#about">About</NavLink></li>
-            <li><NavLink onClick={() => switchActive('projects')} className={() => focus(isActiveLink.projects)} name='projects' to="#projects">Projects</NavLink></li>
-            <li><NavLink onClick={() => switchActive('contact')} className={() => focus(isActiveLink.contact)} name='contact' to="#contact">Contact</NavLink></li>
-        </ul>
-    </nav>
-)
+import MobileNav from './MobileNav';
+import DesktopNav from './DesktopNav';
 
 const Header = () => {
-    const [headerStyle, setHeaderStyle] = useState('bg-purple shadow-lg');
+    const [headerStyle, setHeaderStyle] = useState('bg-black bg-opacity-50 shadow-lg z-20');
     const headerRef = useRef(null);
     const [nav, setNav] = useState(false);
     const [active, setActive] = useState({
@@ -67,7 +28,7 @@ const Header = () => {
         })
     }, []);
 
-    const focusActiveLink = ( navLink ) => navLink ? 'ml-4 text-xl hover:text-pink border-b-2 border-pink' : 'ml-4 text-xl hover:text-pink';
+    const focusActiveLink = ( navLink ) => navLink ? 'ml-4 text-sm hover:text-pink border-b-2 border-pink' : 'ml-4 text-sm hover:text-pink';
 
     function handleMenu() {
         setNav(nav => !nav);
@@ -98,9 +59,9 @@ const Header = () => {
 
         const headerHeight = headerRef.current?.offsetHeight || 0;
         if (window.scrollY > headerHeight) {
-            setHeaderStyle('bg-purple shadow-lg sticky top-0 z-10')
+            setHeaderStyle('bg-black bg-opacity-75 shadow-lg sticky top-0 z-10')
         } else {
-            setHeaderStyle('bg-purplr shadow-lg')
+            setHeaderStyle('bg-black bg-opacity-75 shadow-lg')
         }
     }
 
@@ -108,7 +69,9 @@ const Header = () => {
         <header className={headerStyle} ref={headerRef} >
             <div className='mx-auto min-h-full w-11/12 lg:w-10/12'>
                 <div className="flex justify-between items-center">
-                    <img src="./assets/logo.png" alt="Logo" className='w-20 lg:w-32 z-10 ' />
+                    <a href="/">
+                        <img src="./assets/logo.png" alt="Logo" className='w-16 lg:w-20 z-10 ' />
+                    </a>
                     <MobileNav nav={nav} switchMenu={handleMenu} focus={focusActiveLink} switchActive={switchActive} isActiveLink={active} />
                     <DesktopNav focus={focusActiveLink} switchActive={switchActive} isActiveLink={active}  />
                 </div>

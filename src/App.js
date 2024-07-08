@@ -7,7 +7,7 @@ import Header from './components/Header';
 function App() {
   return (
     <BrowserRouter>
-      <div className='bg-violet'>
+      <div className='bg-black'>
         <div className='flex flex-col min-h-screen text-white'>
           <Header />
           <Main />

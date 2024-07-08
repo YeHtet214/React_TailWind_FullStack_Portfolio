@@ -11,11 +11,11 @@ const Project = ({ id, title, description, live_link, code_link }) => {
     const flexItemContentStyle = id % 2 === 0 ? 'lg:translate-x-20' : 'lg:-translate-x-16';
     
     return (
-        <div className={`flex flex-col content-center gap-12 lg:flex-row lg:gap-0 ${flexContainerStyle} `}>
-            <div className={`bg-violet lg:col-span-2 py-10 lg:py-24 ${flexItemImgStyle}`}>
-                <img src='./assets/project1.png' alt={'Project ' + id} />
+        <div className={`flex flex-col content-center gap-12 lg:flex-row lg:gap-0 ${flexContainerStyle}`}>
+            <div className={`bg-violet lg:col-span-2 py-10 lg:py-24 ${flexItemImgStyle} cursor-pointer slideInLeft`}>
+                <img src='./assets/project1.png' className='hover:scale-95 ease-out duration-75 hover:shadow-lg' alt={'Project ' + id} />
             </div>
-            <div className={` leading-loose ${flexItemContentStyle}`}>
+            <div className={` leading-loose ${flexItemContentStyle} slideInRight`}>
                 <h3 className='text-2xl font-bold text-pure'>{title}</h3>
                 <p className='tracking-wider text-white text-ellipsis max-w-sm break-words'>{description}</p>
                 <div className='flex mb-2'>
